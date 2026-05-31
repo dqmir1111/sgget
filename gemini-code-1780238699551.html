@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>SecretGram | Secure Messenger</title>
+    <style>
+        :root { --accent: #6366f1; --bg: #030712; }
+        
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: white;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Светящийся фон */
+        .glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.15;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 { font-size: 4rem; margin: 0; letter-spacing: -2px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { color: #64748b; margin-bottom: 40px; font-size: 1.2rem; }
+
+        .btn-group { display: flex; gap: 20px; justify-content: center; }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-primary { background: var(--accent); color: white; border: none; }
+        .btn-primary:hover { background: #4f46e5; box-shadow: 0 0 20px rgba(99, 102, 241, 0.4); }
+
+        .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+    
+    <div class="content">
+        <h1>SecretGram</h1>
+        <p>Криптографически защищенный мессенджер нового поколения.</p>
+        
+        <div class="btn-group">
+            <a href="https://sg.ttdq.pro" class="btn btn-primary">Web-версия</a>
+            <a href="https://sg.ttdq.pro" class="btn btn-secondary">Скачать .exe</a>
+        </div>
+    </div>
+
+    <script>
+        // Эффект слежения свечения за мышью
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.glow');
+            glow.style.left = (e.clientX - 200) + 'px';
+            glow.style.top = (e.clientY - 200) + 'px';
+        });
+    </script>
+</body>
+</html>
